@@ -9,3 +9,7 @@ int main()
 	printf("%d\n", a);
 	return 0;
 }
+//no bug
+//output
+//513
+//  
