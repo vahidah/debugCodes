@@ -7,3 +7,4 @@ int main()
     printf("%f", *ptr2 - *ptr1);
     return 0;
 }
+//no bug    output 78.000000
