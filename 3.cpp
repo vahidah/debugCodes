@@ -1,10 +1,10 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #pragma warning(disable:4996)
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -16,6 +16,7 @@ void push(int x)
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
+	node->next = NULL;
 	if (!front) {
 		front = node;
 		rear = node;
@@ -51,10 +52,11 @@ void search(int x)
 		}
 		else {
 			printf("ERROR2");
+			counter++;
 			node = node->next;
 			//break;
 		}
-		//node = node->next;
+	//node = node->next;
 }
 
 void rpop() {//pop last element
@@ -62,7 +64,7 @@ void rpop() {//pop last element
 	//while (node)
 	//	node = node->next;
 	// if(rear!=NULL)
-	//free(rear);                                    ///////////not debuged//////////
+	//free(rear);                                 
 	//rear = node;
 	if (front == NULL) {
 		printf("ERROR4");
@@ -73,6 +75,7 @@ void rpop() {//pop last element
 			node = node->next;
 		free(rear);
 		rear = node;
+		rear->next = NULL;
 	}
 	else {
 		free(rear);
@@ -99,11 +102,11 @@ int size()
 
 void show()
 {
-	if (!front) {
+	if (front) {
 		for (int i = 0; i < MAX_SIZE; i++)
 			printf("%d ", arr[i]);
 	}
-	else                                     ////////not debuged ////////
+	else
 	{
 		printf("ERROR3");
 	}
