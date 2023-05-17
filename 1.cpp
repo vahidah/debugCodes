@@ -16,13 +16,14 @@ class vector : public container {
 
 	int call_num;
 public:
-	explicit vector(int l=3) :len(l) , container(1 * 100){
+    int len;
+    
+    explicit vector(int l=3) :len(l) , container(1 * 100){
 		p = new float();
 	}
     vector(container c) : container(100) {
         this->len=3;
     }
-	int len;
 	int& getlen() {
 		call_num ++;
 		return len;
