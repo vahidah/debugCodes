@@ -1,41 +1,45 @@
 ﻿#include<stdio.h>
 #include<stdlib.h>
 #define MAX_SIZE 200
-int arr[MAX_SIZE];
-
+int arr[MAX_SIZE]= {0};
+//we want to create a linklist
 typedef struct alfa * alfaptr;
 
-struct alfa {
-	long long x;
+struct alfa {//we have a struct(alfa) have one data of long long int and one pointer
+	long long int x;
 	alfaptr next;
 };
-alfaptr rear = NULL, front = NULL;
-void push(int x)
-{
-	alfaptr node;
-	node = (alfaptr)malloc(sizeof(struct alfa));
+alfaptr rear = NULL, front = NULL;//add new node
+void push(int x) { //this function push new node to our linklist
+	alfaptr node;//we have a pointer that save the address of new node in it
+	node = (alfaptr)malloc(sizeof(struct alfa));//get memory for new node
 	node->x = x;
-	if (!front)
+	if (!front) { //if the new node is the first node of linklist
 		front = node;
-	else {
+		rear=node;
+	} else {
 		rear->next = node;
-		rear = node;
+		rear = node;//the rear pointer should point to the new node
+		rear->next=NULL;
 	}
 }
 
-void pop()
-{
-	alfaptr node;
-	if (!front)
+void pop() { //remove the first node
+	alfaptr node,ptr=front;
+	if (!front)//the linklist is empty
 		printf("ERROR1");
-	else
-	{
+	if(front->next==NULL) {
+		free(front);
+		front=NULL;
+		rear=NULL;
+		return;
+	} else {
 		node = front->next;
 		front = node;
+		free(ptr);
 	}
 }
-void search(int x)
-{
+void search(int x) { //search one data in our list while find one data that not equal to this data
 	alfaptr node = front;
 	int counter = 0;
 	while (node)
@@ -45,50 +49,57 @@ void search(int x)
 			printf("ERROR2");
 			break;
 		}
-		node = node->next;
+	node = node->next;
 }
 
-void rpop() {//pop last element
+void rpop() {//pop last element(remove the node from the last of the linklist)
 	alfaptr node = front;
-	while (node)
+	if(front->next==NULL) {
+		free(front);
+		front=NULL;
+		rear=NULL;
+		return;
+	}
+	while (node->next->next!=NULL)
 		node = node->next;
 	free(rear);
 	rear = node;
+	node->next=NULL;
 }
 
-void set()
-{
+void set() {
 	alfaptr node = front;
 	for (int i = 0; i < MAX_SIZE && node; i++, node = node->next)
 		arr[i] = node->x;
 }
 
-int size()
-{
+int size() { //this function count the nodes and return the number of nodes
 	alfaptr node = front;
-	int count;
-	while (node)
-		count++;node = node->next;
+	int count=0;
+	if(front==NULL)
+		return count;
+	while (node!=NULL) {
+		count++;
+		node = node->next;
+	}
 	return count;
 }
 
-void show()
-{
-	if (!front) {
+void show() {//show the all member of arr if the linklist is not empty
+	if (!front)
+		printf("ERROR3");
+	else {
 		for (int i = 0; i < MAX_SIZE; i++)
 			printf("%d ", arr[i]);
 	}
-	else
-	{
-		printf("ERROR3");
-	}
 }
 
-int average()
-{
+int average() {//this function measure the average number and return it
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count=0;
+	if(front==NULL)//default average
+		return 0;
 	while (node) {
 		sum += node->x;
 		count++;
@@ -97,40 +108,40 @@ int average()
 	return sum / count;
 }
 
-void main()
-{
+int main() {
 	int cmd;
 	long long int x;
-	while (true)
-	{
+	while (true) {
 		scanf("%d", &cmd);
-		switch (cmd)
-		{
-		case 1://push
-			scanf("%lld", &x);
-			push(x);
-			break;
-		case 2://pop
-			pop();
-			break;
-		case 3://rpop
-			rpop();
-			break;
-		case 4://search
-			scanf("%lld", &x);
-			search(x);
-			break;
-		case 5://set
-			set();
-			break;
-		case 6://show
-			show();
-			break;
-		case 7://size
-			printf("%d", size());
-			break;
-		case 10:
-			exit(0);
+		switch (cmd) {
+			case 1://push
+				scanf("%lld", &x);
+				push(x);
+				break;
+			case 2://pop
+				pop();
+				break;
+			case 3://rpop
+				rpop();
+				break;
+			case 4://search
+				scanf("%lld", &x);
+				search(x);
+				break;
+			case 5://set
+				set();
+				break;
+			case 6://show
+				show();
+				break;
+			case 7://size
+				printf("%d", size());
+				break;
+			case 9:
+				printf("%d", average());
+			case 10:
+				exit(0);
 		}
 	}
+	return 0;
 }
