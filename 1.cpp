@@ -8,18 +8,23 @@ public:
 	float* p;
 	container(int s) :size(s){}
 	const int& getsize() { return size;}
+    void setsize(int s){size=s;}
 
 };
 
-class vector :public container {
+class vector : public container {
 
 	int call_num;
 public:
-	explicit vector(int l) :len(l),size(1 * 100){
+    int len;
+
+    explicit vector(int l=3) :len(l) , container(1 * 100){
 		p = new float();
 	}
-	int len;
-	int& getlen() const {
+    vector(container c) : container(100) {
+        this->len=3;
+    }
+	int& getlen() {
 		call_num ++;
 		return len;
 	}
@@ -32,9 +37,9 @@ int main() {
 	vector v1 = c1;
 	container& r1 = v1;
 	container c2 = 100;
-	c2.getsize() = 20;
+	c2.setsize(20);
 	cout << c2.getsize();
-	vector v2 = 100;
-	v2.getlen = 40;
+	vector v2(100);
+	v2.getlen() = 40;
 	cout << v2.getlen();
 }
