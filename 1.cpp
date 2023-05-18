@@ -17,7 +17,7 @@ class vector : public container {
 	int call_num;
 public:
     int len;
-    
+
     explicit vector(int l=3) :len(l) , container(1 * 100){
 		p = new float();
 	}
