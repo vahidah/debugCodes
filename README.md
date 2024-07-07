@@ -3,8 +3,8 @@ Design and implementation of a processor-based computer simulator with LC3 archi
 
 # Description
 Computer Architecture Project.<br />
-Group members : Pouya Amini + Mohammad Mahdi Esmaeilzadeh.  <br />     
-group name : Smile<br />
+Group members : Pouya Amini + Mohammad Mahdi Esmaeilzadeh.<br />     
+group name : Smile
 
 # Features
 Assembler : Receive commands in text format and convert to corresponding machine code.<br />
