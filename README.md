@@ -11,3 +11,4 @@ Assembler : Receive commands in text format and convert to corresponding machine
 Hardware emulator core : A software module that imitates step-by-step the behavior of LC3 hardware in the execution of micro-instructions.<br />
 Status display : The user interface of the simulator that displays the system status to the user when the code is executed.
 
+# Some views of the code
