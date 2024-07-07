@@ -3,7 +3,7 @@ Design and implementation of a processor-based computer simulator with LC3 archi
 
 # Description
 Computer Architecture Project.<br />
-Group members : Pouya Amini + Mohammad Mahdi Esmaeilzadeh.<br />     
+Group members : Pouya Amini + Mohammad Mahdi Esmaeilzadeh.
 group name : Smile
 
 # Features
