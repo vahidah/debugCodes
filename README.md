@@ -1,2 +1,2 @@
-# APLabGitPractice
- باید که کد های این مخزن رو بررسی و دیباگ کنید و کد اصلاح شده رو اینجا ارسال کنید
+# LC3
+Design and implementation of a processor-based computer simulator with LC3 architecture
