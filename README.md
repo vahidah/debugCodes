@@ -1,5 +1,5 @@
 # LC3
-Design and implementation of a processor-based computer simulator with LC3 architecture, written in CPP using the QT GUI framework.
+<b>Design and implementation of a processor-based computer simulator with LC3 architecture, written in CPP using the QT GUI framework.</b>
 
 # Description
 Computer Architecture Project.<br />
