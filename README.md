@@ -1,2 +1,13 @@
 # LC3
-Design and implementation of a processor-based computer simulator with LC3 architecture
+Design and implementation of a processor-based computer simulator with LC3 architecture, written in CPP using the QT GUI framework.
+
+# Description
+Computer Architecture Project.
+Group members : Pouya Amini + Mohammad Mahdi Esmaeilzadeh.       
+group name : Smile
+
+# Features
+Assembler : Receive commands in text format and convert to corresponding machine code.
+Hardware emulator core : A software module that imitates step-by-step the behavior of LC3 hardware in the execution of micro-instructions.
+Status display : The user interface of the simulator that displays the system status to the user when the code is executed.
+
